@@ -7,11 +7,12 @@ the file list in CI (§7).
 **Defaults**
 
 - License: MIT, copyright the repository owner.
-- Code of conduct: the owner's, copied verbatim from `crueber/AI-Instructions`.
+- Code of conduct: the owner's, copied verbatim from
+  [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
 - Development forge: the owner's Forgejo at `git.packden.us`. CI, nightly and release candidates run
-  there.
+  there. Develop on Forgejo, never on GitHub.
 - Public release: GitHub at `github.com/crueber`. The public tree is generated from the Forgejo
-  source; GitHub workflows build and publish the release.
+  source and is read-only to humans; GitHub workflows build and publish the release.
 - Entry point: `make`. Every standardized action is a target; scripts are implementation details.
 - Ask first: an agent that does not know an answer asks the owner before writing code (§5.2).
 
@@ -67,7 +68,7 @@ tests/
 | `CONTRIBUTING.md` | yes | Setup, gate, commit rules, review expectations, decision process. |
 | `SECURITY.md` | yes | Report path, response window, supported versions, scope. |
 | `CHANGELOG.md` | yes | User-visible changes per version, with an Unreleased section. |
-| `CODE_OF_CONDUCT.md` | yes | The owner's code of conduct, copied verbatim from `crueber/AI-Instructions`. |
+| `CODE_OF_CONDUCT.md` | yes | The owner's code of conduct, copied verbatim from [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions). |
 | `NOTICE` | if redistributing | Third-party names, versions, licenses, URLs. |
 | `Makefile` | yes | The only entry point. `dev`, `test`, `check`, `repo-check`, `ship`; the same targets CI runs. |
 | `.env.example` | yes | Every variable, safe defaults, no real secrets. |
@@ -90,7 +91,9 @@ tests/
 
 ## 3. Workflows
 
-Forgejo runs GitHub Actions syntax. Keep the two copies identical except for runner labels, artifact
+Forgejo runs GitHub Actions syntax. Development happens on the owner's Forgejo. GitHub is the public
+release target: a generated mirror, read-only to humans, where the release workflows run. A change
+starts on Forgejo, never on GitHub. Keep the two copies identical except for runner labels, artifact
 action versions and token contexts. Never hand-maintain two divergent CI files: generate the second,
 or keep a diff check.
 

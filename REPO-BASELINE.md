@@ -6,8 +6,10 @@ the file list in CI (§7).
 
 **Defaults**
 
-- License: MIT, copyright Christopher Rueber.
+- License: MIT, copyright Christopher Rueber. The text is `templates/LICENSE` in
+  [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
 - Code of conduct: Christopher Rueber's standard, copied verbatim from
+  `templates/CODE_OF_CONDUCT.md` in
   [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
 - Development forge: the owner's Forgejo at `git.packden.us`. CI, nightly and release candidates run
   there. Develop on Forgejo, never on GitHub.
@@ -63,12 +65,12 @@ tests/
 | Path | Required | Minimum content |
 |---|---|---|
 | `README.md` | yes | What it is, who it is for, how to run, how to verify, status. Test on a clean machine. |
-| `LICENSE` | yes | MIT, copyright Christopher Rueber. Any other license is an explicit decision. |
+| `LICENSE` | yes | MIT, copyright Christopher Rueber. Copy `templates/LICENSE`; any other license is an explicit decision. |
 | `AGENTS.md` | yes | The rules in §5. |
 | `CONTRIBUTING.md` | yes | Setup, gate, commit rules, review expectations, decision process. |
 | `SECURITY.md` | yes | Report path, response window, supported versions, scope. |
 | `CHANGELOG.md` | yes | User-visible changes per version, with an Unreleased section. |
-| `CODE_OF_CONDUCT.md` | yes | Christopher Rueber's code of conduct, copied verbatim from [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions). |
+| `CODE_OF_CONDUCT.md` | yes | Christopher Rueber's code of conduct, copied verbatim from `templates/CODE_OF_CONDUCT.md`. |
 | `NOTICE` | if redistributing | Third-party names, versions, licenses, URLs. |
 | `Makefile` | yes | The only entry point. `dev`, `test`, `check`, `repo-check`, `ship`; the same targets CI runs. |
 | `.env.example` | yes | Every variable, safe defaults, no real secrets. |
@@ -140,6 +142,9 @@ Rules:
   repository.
 
 ## 5. AGENTS.md
+
+A ready copy is in `templates/AGENTS.md` of
+[crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
 
 ### 5.1 Structure
 
@@ -316,8 +321,8 @@ Run it on every push. An unchecked baseline drifts.
 
 ## 11. License hygiene
 
-- MIT is the default. Copy `LICENSE` from `crueber/AI-Instructions`. Any other license is an explicit
-  decision, recorded in an ADR.
+- MIT is the default. Copy `templates/LICENSE` from `crueber/AI-Instructions`. Any other license is an
+  explicit decision, recorded in an ADR.
 - Add `NOTICE` when you redistribute third-party code or assets; list name, version, license and URL.
 - Keep a third-party licenses file if the build vendors code.
 - Check every new dependency's license in CI. Fail on unknown or incompatible.

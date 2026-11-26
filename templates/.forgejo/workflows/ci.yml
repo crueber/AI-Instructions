@@ -10,8 +10,11 @@ permissions:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    runs-on: docker
+    timeout-minutes: 15
+    container:
+      image: node:20-bookworm
+      init: true
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: make check

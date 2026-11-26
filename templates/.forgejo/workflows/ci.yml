@@ -8,13 +8,23 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+
 jobs:
   check:
     runs-on: docker
     timeout-minutes: 15
-    container:
-      image: node:20-bookworm
-      init: true
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - run: make check
+      # TODO: pin the image your forge's runner provides, or add a container: block.
+      # TODO: set up the language toolchain and cache it.
+      - run: make fmt-check
+      - run: make lint
+      - run: make test
+      - run: make build
+      - run: make repo-check

@@ -8,10 +8,23 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - run: make check
+      # TODO: set up the language toolchain, pinned to the repository's version.
+      # TODO: cache the toolchain's downloads.
+      - run: make fmt-check
+      - run: make lint
+      - run: make test
+      - run: make build
+      - run: make repo-check

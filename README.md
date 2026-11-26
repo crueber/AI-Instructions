@@ -6,7 +6,8 @@ The owner's baseline for a new repository, and the harness for an existing one.
   settings, the agent rules, the make entry point, the self-check, and the greenfield and retrofit
   orders.
 - [templates/](templates/) holds the files to copy into a new repository: the agent file, the license,
-  the code of conduct, the make entry point, the self-check script, and both CI workflows.
+  the code of conduct, the make entry point, the self-check script, and the CI, nightly and release
+  workflows for both forges.
 
 ## Defaults
 

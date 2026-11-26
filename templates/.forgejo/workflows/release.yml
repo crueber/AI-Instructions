@@ -1,0 +1,35 @@
+# TODO: make release must write dist/ and SHA256SUMS.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: docker
+    timeout-minutes: 60
+    env:
+      GITEA_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      # TODO: pin the image your forge's runner provides, or add a container: block.
+      # TODO: set up the language toolchain.
+      - run: make release
+      - run: cd dist && sha256sum -c SHA256SUMS
+      - name: Create the draft release
+        run: |
+          args=()
+          for f in dist/*; do args+=(--asset "$f"); done
+          tea releases create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --note "Release $GITHUB_REF_NAME" \
+            --draft "${args[@]}"
+      - name: Publish the release
+        run: tea releases edit "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --draft false

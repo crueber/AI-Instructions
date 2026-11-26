@@ -7,6 +7,8 @@
 - `make dev`
 - `make test`
 - `make check`
+- `make build`
+- `make release`
 - `make repo-check`
 
 ## Ask first

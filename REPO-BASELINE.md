@@ -109,6 +109,9 @@ a diff check.
 | `docker-image.yml` | GitHub | tag `v*` | build and push the image |
 | `pages.yml` | GitHub | push to main | docs or landing site |
 
+The templates ship `ci.yml`, `nightly.yml` and `release.yml` for both forges. Add the optional mirror,
+image and pages workflows when their triggers apply.
+
 Rules:
 
 - Every job declares `runs-on`, `timeout-minutes` and `steps`. Parse every workflow file in the gate;
@@ -258,7 +261,8 @@ Ask before:
 - Every standardized action is a target. Scripts are implementation details; nobody runs them
   directly.
 - `make` with no target prints `help`, and `help` is the index of every target.
-- The standard targets: `dev`, `test`, `check`, `repo-check`, `build`, `release`, `publish`.
+- The standard targets: `dev`, `fmt`, `fmt-check`, `lint`, `test`, `test-slow`, `bench`, `build`,
+  `check`, `repo-check`, `release`, `publish`.
 - `check` is the gate. It runs format, lint, tests and `repo-check` in a fixed order.
 - CI calls the same targets. It never calls a script that make does not expose.
 - A new script lands with a target in the same change.

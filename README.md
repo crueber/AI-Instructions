@@ -13,8 +13,8 @@ The owner's baseline for a new repository, and the harness for an existing one.
 - License: MIT. The text is [templates/LICENSE](templates/LICENSE).
 - Code of conduct: [templates/CODE_OF_CONDUCT.md](templates/CODE_OF_CONDUCT.md), Christopher Rueber's
   standard.
-- Development forge: Forgejo at `git.packden.us`.
-- Public release: GitHub at `github.com/crueber`.
+- Development forge: use `tea` to reach it.
+- Public release: use `gh` to reach it.
 - Entry point: `make`. Every standardized action is a target; scripts are implementation details.
 - Ask first: [templates/AGENTS.md](templates/AGENTS.md) tells the agent to ask the questions in its
   "Ask first" section before writing code.

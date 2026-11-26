@@ -11,10 +11,10 @@ the file list in CI (§7).
 - Code of conduct: Christopher Rueber's standard, copied verbatim from
   `templates/CODE_OF_CONDUCT.md` in
   [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
-- Development forge: the owner's Forgejo at `git.packden.us`. CI, nightly and release candidates run
-  there. Develop on Forgejo, never on GitHub.
-- Public release: GitHub at `github.com/crueber`. The public tree is generated from the Forgejo
-  source and is read-only to humans; GitHub workflows build and publish the release.
+- Development forge: use `tea` to reach it. CI, nightly and release candidates run there. Develop
+  there, never on the public repository.
+- Public release: use `gh` to reach it. The public tree is generated from the development source and
+  is read-only to humans; the public workflows build and publish the release.
 - Entry point: `make`. Every standardized action is a target; scripts are implementation details.
 - Ask first: an agent that does not know an answer asks the owner before writing code (§5.2).
 
@@ -93,11 +93,12 @@ tests/
 
 ## 3. Workflows
 
-Forgejo runs GitHub Actions syntax. Development happens on the owner's Forgejo. GitHub is the public
-release target: a generated mirror, read-only to humans, where the release workflows run. A change
-starts on Forgejo, never on GitHub. Keep the two copies identical except for runner labels, artifact
-action versions and token contexts. Never hand-maintain two divergent CI files: generate the second,
-or keep a diff check.
+Forgejo runs GitHub Actions syntax. Development happens on the development forge; use `tea` to reach
+it. The public repository is the release target; use `gh` to reach it. It is a generated mirror,
+read-only to humans, where the release workflows run. A change starts on the development forge, never
+on the public repository. Keep the two copies identical except for runner labels, artifact action
+versions and token contexts. Never hand-maintain two divergent CI files: generate the second, or keep
+a diff check.
 
 | Workflow | Where | Trigger | Jobs |
 |---|---|---|---|
@@ -171,7 +172,8 @@ point where it matters.
 6. Which three to five budgets matter (latency, size, memory, cost, dependencies), and what are the
    numbers?
 7. What is untrusted, where do secrets live, and what may leave the machine?
-8. Which forge is for development, which is for public release, and who may push, tag or publish?
+8. Which forge is for development (`tea`) and which is for public release (`gh`), and who may push,
+   tag or publish?
 9. What license and code of conduct apply? Default: MIT and the owner's code of conduct.
 10. What is the definition of done: platforms, screen sizes, browsers, offline behavior, oldest
     supported version?
@@ -204,7 +206,7 @@ Rules:
 13. If there is a UI, use the design tokens and shared components. No ad-hoc colors, spacing or type.
 14. IDs and time come from the application. Short transactions. One writer where the store allows it.
 15. Every standardized action is a `make` target. Scripts are invoked only through make.
-16. The owner's defaults hold: MIT, Forgejo for development, GitHub for public release.
+16. The owner's defaults hold: MIT, `tea` for the development forge, `gh` for the public release.
 
 ### 5.4 Working rules
 

@@ -56,7 +56,7 @@ Rules:
 13. If there is a UI, use the design tokens and shared components. No ad-hoc colors, spacing or type.
 14. IDs and time come from the application. Short transactions. One writer where the store allows it.
 15. Every standardized action is a `make` target. Scripts are invoked only through make.
-16. The owner's defaults hold: MIT, Forgejo for development, GitHub for public release.
+16. The owner's defaults hold: MIT, `tea` for the development forge, `gh` for the public release.
 
 ## Working rules
 

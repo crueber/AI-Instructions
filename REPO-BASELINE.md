@@ -6,8 +6,8 @@ the file list in CI (§7).
 
 **Defaults**
 
-- License: MIT, copyright the repository owner.
-- Code of conduct: the owner's, copied verbatim from
+- License: MIT, copyright Christopher Rueber.
+- Code of conduct: Christopher Rueber's standard, copied verbatim from
   [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions).
 - Development forge: the owner's Forgejo at `git.packden.us`. CI, nightly and release candidates run
   there. Develop on Forgejo, never on GitHub.
@@ -63,12 +63,12 @@ tests/
 | Path | Required | Minimum content |
 |---|---|---|
 | `README.md` | yes | What it is, who it is for, how to run, how to verify, status. Test on a clean machine. |
-| `LICENSE` | yes | MIT, copyright the owner. Any other license is an explicit decision. |
+| `LICENSE` | yes | MIT, copyright Christopher Rueber. Any other license is an explicit decision. |
 | `AGENTS.md` | yes | The rules in §5. |
 | `CONTRIBUTING.md` | yes | Setup, gate, commit rules, review expectations, decision process. |
 | `SECURITY.md` | yes | Report path, response window, supported versions, scope. |
 | `CHANGELOG.md` | yes | User-visible changes per version, with an Unreleased section. |
-| `CODE_OF_CONDUCT.md` | yes | The owner's code of conduct, copied verbatim from [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions). |
+| `CODE_OF_CONDUCT.md` | yes | Christopher Rueber's code of conduct, copied verbatim from [crueber/AI-Instructions](https://github.com/crueber/AI-Instructions). |
 | `NOTICE` | if redistributing | Third-party names, versions, licenses, URLs. |
 | `Makefile` | yes | The only entry point. `dev`, `test`, `check`, `repo-check`, `ship`; the same targets CI runs. |
 | `.env.example` | yes | Every variable, safe defaults, no real secrets. |

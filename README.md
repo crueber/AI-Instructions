@@ -9,7 +9,7 @@ greenfield and retrofit orders.
 ## Defaults
 
 - License: [MIT](LICENSE), copyright Christopher Rueber.
-- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), the owner's standard.
+- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), Christopher Rueber's standard.
 - Development forge: Forgejo at `git.packden.us`.
 - Public release: GitHub at `github.com/crueber`.
 - Entry point: `make`. Every standardized action is a target; scripts are implementation details.
